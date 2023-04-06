@@ -10,7 +10,7 @@ export interface AppState {
     status: string;
   };
   currentPage: number;
-  pageSize: 5 | 10 | 20 | 50;
+  pageSize: 8;
   totalFilteredCapsules: number;
   filteredCapsules: Capsule[];
   authenticated: boolean;
@@ -26,7 +26,7 @@ const initialState: AppState = {
     status: ''
   },
   currentPage: 0,
-  pageSize: 20,
+  pageSize: 8,
   totalFilteredCapsules: 0,
   filteredCapsules: []
 };
@@ -40,7 +40,7 @@ const capsulesSlice = createSlice({
     },
     setCapsules: (state: AppState, action: PayloadAction<Capsule[]>) => {
       state.capsules = action.payload;
-      state.filteredCapsules = state.capsules.slice(0, state.pageSize);
+      state.filteredCapsules = action.payload;
       state.currentPage = 0;
       state.totalFilteredCapsules = state.filteredCapsules.length;
     },
@@ -90,6 +90,9 @@ const capsulesSlice = createSlice({
         return state;
       }
       state.currentPage++;
+    },
+    setCurrentPage: (state: AppState, action: PayloadAction<number>) => {
+      state.currentPage = action.payload;
     }
   }
 });

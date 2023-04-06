@@ -36,7 +36,7 @@ const CapsulesGrid = () => {
   useEffect(() => {
     const firstIndexOnCurrentPage = currentPageNo * pageSize;
     const lastIndexOnNextPage = currentPageNo * pageSize + pageSize;
-    setCurrentPageCapsules(filteredCapsules.slice(firstIndexOnCurrentPage, lastIndexOnNextPage - 1))
+    setCurrentPageCapsules(filteredCapsules.slice(firstIndexOnCurrentPage, lastIndexOnNextPage))
   }, [pageSize, currentPageNo, filteredCapsules]);
 
   const gridView = currentPageCapsules.map((capsule) => <CapsuleGridItem key={capsule.capsule_serial} capsule={capsule}></CapsuleGridItem>);

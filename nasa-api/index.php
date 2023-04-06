@@ -45,7 +45,10 @@ function authenticate() {
 
     $token = Token::create($username, $secret, $expiration, $issuer);
     http_response_code(200);
-    echo $token;
+    $obj = (object) [
+      'token' => $token,
+    ];
+    echo json_encode($obj);
   }
 }
 
@@ -60,9 +63,37 @@ function authorize() {
   if($authenticated == false && $uri != '/nasa-api/login') {
     http_response_code(401);
     echo 'Unauthorized request';
+    return $authenticated;
   }
-  return $authenticated;
+  return true;
 }
+
+function cors() {
+    
+  // Allow from any origin
+  if (isset($_SERVER['HTTP_ORIGIN'])) {
+      // Decide if the origin in $_SERVER['HTTP_ORIGIN'] is one
+      // you want to allow, and if so:
+      header("Access-Control-Allow-Origin: {$_SERVER['HTTP_ORIGIN']}");
+      header('Access-Control-Allow-Credentials: true');
+      header('Access-Control-Max-Age: 86400');    // cache for 1 day
+  }
+  
+  // Access-Control headers are received during OPTIONS requests
+  if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
+      
+      if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_METHOD']))
+          // may also be using PUT, PATCH, HEAD etc
+          header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+      
+      if (isset($_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']))
+          header("Access-Control-Allow-Headers: {$_SERVER['HTTP_ACCESS_CONTROL_REQUEST_HEADERS']}");
+  
+      exit(0);
+  }
+}
+
+cors();
 
 $routes = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
   $r->addRoute('POST', '/nasa-api/login', 'authenticate');

@@ -34,7 +34,7 @@ const SearchForm = () => {
             </div>
             <div>
               <label htmlFor="last_name" className="block mb-2 text-sm font-medium text-gray-900">Original Launch</label>
-              <input ref={originalLaunchDateInputRef} type="text" id="original_launch" className="bg-white border border-secondary text-accent text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5" placeholder="Original Launch" ></input>
+              <input ref={originalLaunchDateInputRef} type="date" id="original_launch" className="bg-white border border-secondary text-accent text-sm rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5" placeholder="Original Launch" ></input>
             </div>
             <div>
               <label htmlFor="last_name" className="block mb-2 text-sm font-medium text-gray-900">Type</label>

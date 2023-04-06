@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Capsule } from "../../../interfaces/capsule.interface";
-import CapsulePopup from "../CapsulePopup/CapsulePopup";
 
 
 const CapsuleGridItem = (props: React.PropsWithChildren<{ capsule: Capsule }>) => {
@@ -30,10 +29,10 @@ const CapsuleGridItem = (props: React.PropsWithChildren<{ capsule: Capsule }>) =
           <div
             className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
           >
-            <div className="relative w-auto my-6 mx-auto">
+            <div className="relative w-96 lg:w-2/5 lg:px-10 my-6 mx-auto">
               <div className="border-0 rounded-lg w-full shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none w-full">
                 <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                  <img src='/rocket.svg' className="w-8 h-8 mr-5 h-full"></img><h3 className="text-3xl font-semibold">
+                  <img src='/rocket.svg' className="w-12 h-12 mr-5 h-full"></img><h3 className="text-3xl font-semibold">
                     <div>
                       <div>{capsule.type}</div>
                       <div className="text-sm text-accent">{capsule.capsule_serial}</div>
@@ -49,7 +48,7 @@ const CapsuleGridItem = (props: React.PropsWithChildren<{ capsule: Capsule }>) =
                   </button>
                 </div>
                 <div className="relative p-6 flex-auto">
-                  <div className="flex flex-col w-96">
+                  <div className="flex flex-col w-full">
                     <div className="w-full mt-2">
                       <p className="text-md text-primary font-semibold">Details</p>
                       <p className="text-xl text-accent font-medium">{capsule.details}</p>

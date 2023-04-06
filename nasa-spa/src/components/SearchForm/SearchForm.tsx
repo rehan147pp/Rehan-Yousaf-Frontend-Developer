@@ -21,7 +21,7 @@ const SearchForm = () => {
   }
 
   return <>
-    <div className='flex flex-column justify-center mx-80 my-10 h-fit mt-8 flex-wrap'>
+    <div className='flex flex-column justify-center mx-10 lg:mx-80 my-10 h-fit mt-8 flex-wrap'>
       <div className="flex flex-row justify-center items-center w-full h-fit my-8">
         <h1 className="text-3xl font-medium text-accent inline-block">Search</h1>
       </div>

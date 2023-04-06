@@ -14,7 +14,7 @@ const Home = () => {
     <Banner></Banner>
     {authenticated && <><SearchForm></SearchForm>
     <CapsulesGrid></CapsulesGrid></>}
-    {!authenticated && <p className='text-3xl text-primary font-bold mx-80 my-24'>Click the Login button to start learning about Capsules</p>}
+    {!authenticated && <p className='text-3xl text-primary font-bold mx-10 lg:mx-80  my-24'>Click the Login button to start learning about Capsules</p>}
   </>;
 }
 

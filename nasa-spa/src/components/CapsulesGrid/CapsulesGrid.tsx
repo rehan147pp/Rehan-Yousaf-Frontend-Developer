@@ -42,12 +42,12 @@ const CapsulesGrid = () => {
   const gridView = currentPageCapsules.map((capsule) => <CapsuleGridItem key={capsule.capsule_serial} capsule={capsule}></CapsuleGridItem>);
 
   return <>
-    <h1 className="mx-80 text-xl text-primary font-medium">Results</h1>
-    <div className="grid grid-cols-4 gap-6  mx-80 my-10 h-fit mt-8">
+    <h1 className="mx-10 lg:mx-80 text-xl text-primary font-medium">Results</h1>
+    <div className="grid lg:grid-cols-2 gap-6  mx-10 lg:mx-80  my-10 h-fit mt-8 xl:grid-cols-4 sm:grid-cols-1">
       {gridView || null}    
       
     </div>
-    <div className="mx-80 flex flex-row justify-center mb-8">
+    <div className="mx-10 lg:mx-80 flex flex-row justify-center mb-8">
       <Paginator></Paginator>  
     </div>
   </>;

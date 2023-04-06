@@ -32,15 +32,15 @@ const NavBar = () => {
   }
 
   return <>
-    <div className='flex flex-row justify-between mx-80 my-10'>
+    <div className='flex flex-col lg:flex-row justify-between mx-10 lg:mx-80  my-10'>
       <div className='text-3xl text-accent inline-block font-bold flex flex-row items-center'>FunNasa</div>
       <div className='inline-block'>
-        <ul className='flex flex-row text-accent h-full py-3'>
-          <li className='text-2xl text-accent mx-16 font-medium'>Link 1</li>
+        <ul className='flex flex-col text-accent h-full py-3 lg:flex-row'>
+          <li className='text-2xl text-accent mx-0 lg:mx-16 font-medium'>Link 1</li>
           <div className='inline-block w-0.5 h-full bg-secondary'></div>
-          <li className='text-2xl text-accent mx-16 font-medium'>Link 2</li>
+          <li className='text-2xl text-accent mx-0 lg:mx-16 font-medium'>Link 2</li>
           <div className='inline-block w-0.5 h-full bg-secondary'></div>
-          <li className='text-2xl text-accent mx-16 font-medium'>Link 3</li>
+          <li className='text-2xl text-accent mx-0 lg:mx-16 font-medium'>Link 3</li>
         </ul>
       </div>
       <div className='inline-block flex items-center'>

@@ -52,14 +52,12 @@ const capsulesSlice = createSlice({
       type: string;
       status: string;
     }>) => {
-      console.log('action payload', action.payload);
       state.filterValues = action.payload;
       state.filteredCapsules = state.capsules.filter(
         (c) => {
           if(!state.filterValues.status) {
             return true;
           }
-          console.log(c.status, 'includes', state.filterValues.status);
           return c.status.trim().toLowerCase().includes(state.filterValues.status);
         }
       ).filter(
@@ -67,7 +65,6 @@ const capsulesSlice = createSlice({
           if(!state.filterValues.type) {
             return true;
           }
-          console.log(c.type, 'includes', state.filterValues.type);
           return c.type.trim().toLowerCase().includes(state.filterValues.type);
         }
       ).filter(
